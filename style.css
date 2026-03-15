@@ -1,0 +1,310 @@
+
+html {
+    scroll-behavior: smooth;
+}
+
+.hero-content h1 {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 700;
+    font-size: clamp(1rem, 5vw, 7rem); /* responsive scaling */
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: #C84910;
+    text-shadow: 0 1px 5px #C84910;
+    margin: 0 0 0.5rem;
+    text-transform: none;
+}
+
+
+
+/* ===== HERO VIDEO ===== */
+.hero-video {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* video fullscreen */
+.hero-video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+/* overlay content */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.4);
+}
+
+
+
+/* optional smaller subtitle spacing */
+.hero-content p.lead {
+    margin-bottom: 0;
+    opacity: 0.95;
+}
+
+.hero-video {
+    position: relative;
+    height: 80vh;
+    overflow: hidden;
+}
+
+.hero-video video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.3); /* jemný overlay */
+}
+
+
+/* prokliky */
+.section-block {
+    height: 250px; /* nebo jiná výška */
+    text-align: center;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.section-block:hover {
+    opacity: 0.95;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* text uvnitř odkazu */
+.section-block h3,
+.section-block p {
+    margin: 0;
+}
+
+/* zrušit podtržení u linků */
+.section-block {
+    text-decoration: none;
+    color: white;
+}
+
+
+/* ===== Bloky pro dvě sekce ===== */
+.section-block {
+    height: 250px;                  /* výška bloků */
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    
+    /* plynulá animace */
+    transition: transform 0.3s ease, opacity 0.3s ease, border-radius 0.3s ease;
+}
+
+/* hover efekt – mírné zvětšení a kulaté rohy */
+.section-block:hover {
+    opacity: 0.95;
+    transform: scale(1.05);
+    border-radius: 20px;            /* kulaté rohy při hoveru */
+    cursor: pointer;
+}
+
+/* vlastní barvy */
+.section-motion {
+    background-color: #BCC873;      /* světle zelená */
+}
+
+.section-tisk {
+    background-color: #C84910;      /* červená */
+}
+
+
+/* Bloky */
+.section-block {
+    height: 250px; /* výška bloků, můžeš změnit */
+    text-align: center;
+}
+
+
+
+/* portfolio */
+/* GRID */
+.portfolio-grid {
+    width: 100%;
+}
+
+/* KLIKACÍ POLOŽKA */
+.portfolio-item {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* OBRÁZEK */
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* PLAY IKONA */
+.play-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+/* samotná šipka */
+.play-icon::before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 80px solid #C1666B;     /* červená */
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    
+}
+
+/* hover efekt (desktop) */
+@media (hover: hover) {
+    .portfolio-item:hover .play-icon::before {
+        transform: scale(1.15);
+        opacity: 0.9;
+    }
+}
+
+/* mobil – menší šipka */
+@media (max-width: 767px) {
+    .play-icon::before {
+        border-left-width: 60px;
+        border-top-width: 38px;
+        border-bottom-width: 38px;
+    }
+}
+
+
+/* MODAL – BEZ BÍLÝCH OKRAJŮ */
+.modal-content {
+    background: transparent;
+    border: none;
+}
+
+.modal-backdrop.show {
+    opacity: 0.85;
+}
+
+
+
+/* portfolio fotografie */
+
+.gallery {
+    width: 100%;
+}
+
+.gallery .row {
+    margin: 0;
+}
+
+.gallery .col-6 {
+    padding: 0;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+}
+
+/* DESKTOP & TABLET */
+@media (min-width: 768px) {
+    body.modal-open .gallery {
+        filter: blur(3px);
+        opacity: 0.3;
+    }
+}
+
+/* MOBIL */
+@media (max-width: 767px) {
+    body.modal-open .gallery {
+        filter: none;
+        opacity: 0.15;
+    }
+}
+
+/* BACKDROP – funguje všude */
+.modal-backdrop.show {
+    opacity: 0.8;
+}
+body.modal-open .gallery {
+    opacity: 0.2;
+}
+
+/* ABOUT */
+#about h2 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+#about a {
+    font-size: 1.1rem;
+    color: #000;
+    text-decoration: none;
+}
+
+
+
+#about a:hover {
+    text-decoration: underline;
+}
+
+/* CONTACT */
+.contact {
+    background: #D8C7E0;
+    color: #fff;
+}
+
+.contact h3 {
+    font-size: 2cap;
+    margin-bottom: 0.75rem;
+}
+
+.contact a {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.contact a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
